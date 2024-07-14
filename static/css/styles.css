@@ -84,11 +84,14 @@ button:active {
         "footer";
     gap: 1em;
 }
-.nav {
+.nav-container {
     position: sticky;
     top: 0;
     z-index: 2;
     grid-area: nav;
+}
+.header-container {
+    grid-area: header;
 }
 .body {
     grid-area: main;
@@ -102,6 +105,57 @@ button:active {
     grid-template-rows: auto;
     gap: 1em;
     justify-content: center;
+}
+.books-container>div {
+    border: 1px solid greenyellow;
+}
+
+
+
+
+
+
+
+/* NAVIGATION */
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10%;
+    padding: 0 1em;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+
+}
+.nav-item>a {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+}
+.avatar-box {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.avatar {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+
+
+/* HEADER */
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
 }
 
 .book-box {
@@ -124,6 +178,36 @@ button:active {
 
 
 
+
+/* FOOTER */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 0.8em;
+}
+.footer-content { 
+    border: 1px solid blue;
+    cursor: pointer;
+}
+.footer-content:hover {
+    padding: 0 2em;
+}
+.footer-content:hover > .footer-p {
+    display: none;
+}
+.footer-content:hover > .github-logo {
+    display: block;
+}
+.footer-p,
+.github-logo {
+    transition: 250ms;
+}
+.github-logo {
+    display: none;
+    height: 24px;
+}
 
 
 
