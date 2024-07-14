@@ -1,0 +1,68 @@
+/* ---- CSS RESET/MY DEFAULTS ---- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+input, button, textarea, select {
+    font: inherit;
+    font-size: 100%;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+#root, #__next {
+    isolation: isolate;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* OPTIONAL UTILITY CLASSES */
+.hidden {
+    visibility: hidden;
+}
+
+
+/* BUTTONS */
+button {
+    padding: 0.2em 1.5em;
+    border: 1px solid black;
+    border-radius: 16px;
+    color: black;
+    background-color: transparent;
+    font-size: 0.8em;
+    transition: 250ms;
+    cursor: pointer;
+}
+button:hover {
+    color: white;
+    background-color: black;
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.196);
+    transform: scale(1.1);
+}
+button:active {
+    color: green;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.444);
+    transform: scale(0.95);
+}
+
