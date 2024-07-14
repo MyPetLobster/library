@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script src="static/js/scripts.js" defer></script>
     <title>Library</title>
 </head>
 <body>
@@ -12,10 +12,57 @@
         <div class="nav"></div>
         <div class="header"></div>
         <div class="body">
-            <div class="books-container"></div>
-            <div class="book-details"></div>
+            <div class="books-container">
+                <div class="book-box">
+                    <div class="cover-image-box">
+                        <img class="cover-image" src="static/images/book_covers/setting_free_the_bears.jpeg" alt="Setting Free the Bears">
+                    </div>
+                    <div class="book-info">
+                        <h2>Setting Free the Bears</h2>
+                        <p>By John Irving</p>
+                        <p>Pages: 384</p>
+                        <p>Status: Read</p>
+                    </div>
+                </div>
+                <div class="book-box">
+                    <div class="cover-image-box">
+                        <img class="cover-image" src="static/images/book_covers/setting_free_the_bears.jpeg" alt="Setting Free the Bears">
+                    </div>
+                    <div class="book-info">
+                        <h2>Setting Free the Bears</h2>
+                        <p>By John Irving</p>
+                        <p>Pages: 384</p>
+                        <p>Status: Read</p>
+                    </div>
+                </div>
+                <div class="book-box">
+                    <div class="cover-image-box">
+                        <img class="cover-image" src="static/images/book_covers/setting_free_the_bears.jpeg" alt="Setting Free the Bears">
+                    </div>
+                    <div class="book-info">
+                        <h2>Setting Free the Bears</h2>
+                        <p>By John Irving</p>
+                        <p>Pages: 384</p>
+                        <p>Status: Read</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="footer"></div>
     </div>
 </body>
+
+<script> 
+    const bookBoxes = document.querySelectorAll('.book-box');
+    bookBoxes.forEach(bookBox => {
+        bookBox.addEventListener('mouseover', () => {
+            const bookInfo = bookBox.querySelector('.book-info');
+            bookInfo.style.transform = 'translateY(0)';
+        });
+        bookBox.addEventListener('mouseleave', () => {
+            const bookInfo = bookBox.querySelector('.book-info');
+            bookInfo.style.transform = 'translateY(100%)';
+        });
+    });
+</script>
 </html>

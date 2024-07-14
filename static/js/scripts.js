@@ -1,11 +1,49 @@
-const myLibrary = [];
+const myLibrary = [
+    {
+        title: 'Setting Free the Bears',
+        author: 'John Irving',
+        pages: 352,
+        read: true,
+        image: 'static/images/book_covers/setting_free_the_bears.jpeg'
+
+    },
+    {
+        title: 'Elizabeth Costello',
+        author: 'J.M. Coetzee',
+        pages: 231,
+        read: true,
+        image: 'static/images/book_covers/elizabeth_costello.jpeg'
+    },
+    {
+        title: 'The Terror',
+        author: 'Dan Simmons',
+        pages: 769,
+        read: true,
+        image: 'static/images/book_covers/the_terror.jpeg'
+    },
+    {
+        title: 'The Brief Wondrous Life of Oscar Wao',
+        author: 'Junot Diaz',
+        pages: 335,
+        read: false,
+        image: 'static/images/book_covers/the_brief_wondrous_life_of_oscar_wao.jpeg'
+    },
+    {
+        title: 'The Golem and the Jinni',
+        author: 'Helene Wecker',
+        pages: 486,
+        read: true,
+        image: 'static/images/book_covers/the_golem_and_the_jinni.jpeg'
+    }
+];
 
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, read, image) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.image = image;
 }
 
 function addBookToLibrary(book) {
@@ -18,38 +56,16 @@ function displayBooks() {
     booksContainer.innerHTML = '';
 
     myLibrary.forEach((book, index) => {
-        const bookCard = document.createElement('div');
-        bookCard.classList.add('book-card');
-        bookCard.dataset.index = index;
-        
-        const title = document.createElement('h2');
-        title.textContent = book.title;
-        bookCard.appendChild(title);
+        const bookBox = document.createElement('div');
+        bookBox.classList.add('book-box');
+        bookBox.dataset.index = index;
 
-        const author = document.createElement('p');
-        author.textContent = book.author;
-        bookCard.appendChild(author);
 
-        const pages = document.createElement('p');
-        pages.textContent = book.pages;
-        bookCard.appendChild(pages);
 
-        const read = document.createElement('button');
-        read.textContent = book.read ? 'Read' : 'Not Read';
-        read.addEventListener('click', () => {
-            myLibrary[index].read = !myLibrary[index].read;
-            displayBooks();
-        });
-        bookCard.appendChild(read);
-
-        const remove = document.createElement('button');
-        remove.textContent = 'Remove';
-        remove.addEventListener('click', () => {
-            myLibrary.splice(index, 1);
-            displayBooks();
-        });
-        bookCard.appendChild(remove);
-
-        booksContainer.appendChild(bookCard);
+        // set img alt
     });
 }
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     displayBooks();
+// });
