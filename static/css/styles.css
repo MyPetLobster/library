@@ -196,6 +196,9 @@ body {
     display: flex;
     align-items: flex-end;
 }
+.header-title-div>* {
+    transition: 250ms;
+}
 .header-image {
     width: 120px;
 }

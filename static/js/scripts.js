@@ -118,7 +118,7 @@ function displayBooks() {
 }
 
 
-
+// Book card effects
 const bookBoxes = document.querySelectorAll('.book-box');
 bookBoxes.forEach(bookBox => {
     bookBox.addEventListener('mouseover', () => {
@@ -132,15 +132,24 @@ bookBoxes.forEach(bookBox => {
 });
 
 
+// Add book form
 const expandBookFormButton = document.querySelector('.add-book-button');
 const addBookForm = document.querySelector('.add-book-form');
+const headerTitleDivH1 = document.querySelector('.header-title-div>h1');
+const headerTitleDivImg = document.querySelector('.header-title-div>img');
 expandBookFormButton.addEventListener('click', () => {
     addBookForm.style.display = 'block';
     expandBookFormButton.style.display = 'none';
 
+    headerTitleDivH1.style.fontSize = '0.8em';
+    headerTitleDivImg.style.width = '40px';
+
     addBookForm.querySelector('.cancel-button').addEventListener('click', () => {
         addBookForm.style.display = 'none';
         expandBookFormButton.style.display = 'block';
+
+        headerTitleDivH1.style.fontSize = '2em';
+        headerTitleDivImg.style.width = '120px';
     });
 });
 
