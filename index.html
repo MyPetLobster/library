@@ -32,12 +32,18 @@
             <div class="add-book-div">
                 <button class="add-book-button">Add a Book!</button>
                 <form action="add-book" method="POST" class="add-book-form">
-                    <input type="text" name="title" placeholder="Title" required>
-                    <input type="text" name="author" placeholder="Author" required>
-                    <input type="text" name="pages" placeholder="Pages" required>
-                    <input type="text" name="read" placeholder="Read?" required>
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" placeholder="Title" required>
+                    <label for="author">Author</label>
+                    <input type="text" name="author" id="author" placeholder="Author" required>
+                    <label for="pages">Pages</label>
+                    <input type="text" name="pages" id="pages" placeholder="Pages" required>
+                    <label for="cover">Cover</label>
+                    <input type="file" name="cover" id="cover" placeholder="Cover" accept="image/*">
+                    <label for="read">Read?</label>
+                    <input type="checkbox" name="read" id="read" placeholder="Read?" required>
                     <div class="btn-box">
-                        <button type="submit">Submit</button>
+                        <button type="submit">Add Book</button>
                         <button type="button" class="cancel-button">Cancel</button>
                     </div>
                 </form>
@@ -55,31 +61,4 @@
         </div>
     </div>
 </body>
-
-<script> 
-    const bookBoxes = document.querySelectorAll('.book-box');
-    bookBoxes.forEach(bookBox => {
-        bookBox.addEventListener('mouseover', () => {
-            const bookInfo = bookBox.querySelector('.book-info');
-            bookInfo.style.transform = 'translateY(0)';
-        });
-        bookBox.addEventListener('mouseleave', () => {
-            const bookInfo = bookBox.querySelector('.book-info');
-            bookInfo.style.transform = 'translateY(100%)';
-        });
-    });
-
-
-    const addBookButton = document.querySelector('.add-book-button');
-    const addBookForm = document.querySelector('.add-book-form');
-    addBookButton.addEventListener('click', () => {
-        addBookForm.style.display = 'block';
-        addBookButton.style.display = 'none';
-
-        addBookForm.querySelector('.cancel-button').addEventListener('click', () => {
-            addBookForm.style.display = 'none';
-            addBookButton.style.display = 'block';
-        });
-    });
-</script>
 </html>

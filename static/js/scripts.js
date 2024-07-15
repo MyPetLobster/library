@@ -117,6 +117,59 @@ function displayBooks() {
     });
 }
 
+
+
+const bookBoxes = document.querySelectorAll('.book-box');
+bookBoxes.forEach(bookBox => {
+    bookBox.addEventListener('mouseover', () => {
+        const bookInfo = bookBox.querySelector('.book-info');
+        bookInfo.style.transform = 'translateY(0)';
+    });
+    bookBox.addEventListener('mouseleave', () => {
+        const bookInfo = bookBox.querySelector('.book-info');
+        bookInfo.style.transform = 'translateY(100%)';
+    });
+});
+
+
+const expandBookFormButton = document.querySelector('.add-book-button');
+const addBookForm = document.querySelector('.add-book-form');
+expandBookFormButton.addEventListener('click', () => {
+    addBookForm.style.display = 'block';
+    expandBookFormButton.style.display = 'none';
+
+    addBookForm.querySelector('.cancel-button').addEventListener('click', () => {
+        addBookForm.style.display = 'none';
+        expandBookFormButton.style.display = 'block';
+    });
+});
+
+const addBookButton = document.querySelector('.add-book-form button[type="submit"]');
+addBookButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    const title = addBookForm.querySelector('input[name="title"]').value;
+    const author = addBookForm.querySelector('input[name="author"]').value;
+    const pages = addBookForm.querySelector('input[name="pages"]').value;
+    const read = addBookForm.querySelector('input[name="read"]').value;
+    let image = addBookForm.querySelector('input[name="cover"]').value;
+    console.log(`${title} ${author} ${pages} ${read} cover=${cover} type of cover=${typeof cover}`);
+    if (image === '') {
+        alert('true');
+        image = 'static/images/book_covers/default.jpeg';
+    }
+
+
+    myLibrary.push({ title, author, pages, read, image });
+    addBookForm.style.display = 'none';
+    expandBookFormButton.style.display = 'block';
+    displayBooks();
+});
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     displayBooks();
 });
