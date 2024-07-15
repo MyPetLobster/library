@@ -45,9 +45,6 @@ a {
 }
 
 
-
-
-
 /* COLOR VARIABLES */
 :root {
     --primary-dark: #273c40;
@@ -56,38 +53,6 @@ a {
     --danger: #a21d24;
 }
 
-
-/* BUTTONS */
-button {
-    padding: 0.2em 1.5em;
-    border: 1px solid var(--primary-dark);
-    border-radius: 16px;
-    color: var(--primary-dark);
-    background-color: transparent;
-    font-size: 0.8em;
-    transition: 250ms;
-    cursor: pointer;
-}
-button:hover {
-    color: var(--primary-light);
-    background-color: var(--primary-dark);
-    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.196);
-    transform: scale(1.05);
-}
-button:active {
-    color: var(--primary-light);
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.444);
-    transform: scale(0.95);
-}
-
-.link-1 {
-    color: var(--primary-dark);
-    transition: 250ms;
-}
-.link-1:hover {
-    color: var(--primary-light);
-    background: var(--highlight-bg);
-}
 
 /* LAYOUT */
 .page-container {
@@ -131,9 +96,40 @@ button:active {
 }
 
 
+/* BUTTONS */
+button {
+    padding: 0.2em 1.5em;
+    border: 1px solid var(--primary-dark);
+    border-radius: 16px;
+    color: var(--primary-dark);
+    background-color: transparent;
+    font-size: 0.8em;
+    transition: 250ms;
+    cursor: pointer;
+}
+button:hover {
+    color: var(--primary-light);
+    background-color: var(--primary-dark);
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.196);
+    transform: scale(1.05);
+}
+button:active {
+    color: var(--primary-light);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.444);
+    transform: scale(0.95);
+}
+
+.link-1 {
+    color: var(--primary-dark);
+    transition: 250ms;
+}
+.link-1:hover {
+    color: var(--primary-light);
+    background: var(--highlight-bg);
+}
 
 
-
+/* ---- STYLING ---- */
 body {
     font-family: 'glacial-indifference', sans-serif;
     font-size: 16px;
@@ -141,18 +137,27 @@ body {
     color: var(--primary-dark);
 }
 
-
-/* NAVIGATION */
+/* Navigation */
 .nav {
     width: 100%;
+    padding: 0 1em;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 8%;
-    padding: 0 1em;
+    color: var(--primary-dark);
     background-color: rgba(0, 0, 0, 0);
-    color: black;
-
+}
+.nav-hero-div {
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+}
+.nav-hero-div>p{
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-dark);
 }
 .nav-logo {
     height: 40px;
@@ -182,15 +187,12 @@ body {
 }
 
 
-
-
-
-/* HEADER */
+/* ---- HEADER SECTION ---- */
 .header {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     font-size: 2em;
 }
 .header-title-div {
@@ -204,11 +206,15 @@ body {
     width: 120px;
 }
 
+
+/* ---- MAIN CONTENT ---- */
+
+/* Book Cards - Cover/Info */
 .book-box {
     position: relative;
     overflow: hidden;
+    border-radius: 8px;
 }
-
 .book-info {
     position: absolute;
     top: 0;
@@ -226,7 +232,6 @@ body {
     background-color: rgba(15, 33, 43, 0.763);
     font-size: 1em;
     text-align: center;
-
 }
 .remove-btn {
     border: 1px solid var(--primary-light);
@@ -239,7 +244,7 @@ body {
     background-color: var(--danger);
 }
 
-/* ADD BOOK */
+/* ADD BOOK FORM */
 .add-book-div {
     width: 100%;
     margin: 2rem 0;
@@ -249,18 +254,15 @@ body {
     text-align: center;
     font-size: 1rem;
 }
-
 .add-book-form {
-    display: none;
-
+    display: none; /* Displayed with JS */
     width: 300px;
     padding: 1em;
     border-radius: 8px;
     flex-direction: column;
+    gap: 1em;
     text-align: left;
     background-color: rgba(245, 245, 245, 0.763);
-    gap: 1em;
-
 }
 label {
     font-size: 0.8em;
@@ -280,15 +282,6 @@ input[type="file"] {
 #cover-label:hover {
     font-weight: bold;
 }
-.read-container {
-    position: relative;
-    height: auto;
-    display: flex;
-    align-items: flex-start;
-    gap: 1em;
-    
-}
-
 .btn-box {
     display: flex;
     flex-direction: column;
@@ -308,20 +301,27 @@ input:focus {
 input::placeholder {
     color: var(--primary-light);
 }
+.read-container {
+    /* Checkbox parent div */
+    position: relative;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 1em;
+}
 input[type="checkbox"] {
     outline: none;
     accent-color: var(--primary-dark);
 }
 
 
-
 /* FOOTER */
 .footer {
     grid-area: footer;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: black;
+    justify-content: center;
+    color: var(--primary-dark);
     font-size: 0.8em;
 }
 .footer-content { 
