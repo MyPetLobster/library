@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "norwester";
+    src: 
+        url("../fonts/norwester-webfont.woff") format("woff"),
+        url("../fonts/norwester-webfont.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "glacial-indifference";
+    src: 
+        url("../fonts/glacialindifference-regular-webfont.woff") format("woff"),
+        url("../fonts/glacialindifference-regular-webfont.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "glacial-indifference";
+    src: 
+        url("../fonts/glacialindifference-bold-webfont.woff") format("woff"),
+        url("../fonts/glacialindifference-bold-webfont.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+}

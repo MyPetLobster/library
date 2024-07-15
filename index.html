@@ -10,6 +10,7 @@
 <body>
     <div class="page-container">
         <div class="nav-container">
+            <img class="nav-logo" src="static/images/icons/bcdb-logo.png" alt="Library">
             <ul class="nav">
                 <li class="nav-item"><a href="about">Apps</a></li>                
                 <li class="nav-item"><a href="#">About</a></li>
@@ -24,8 +25,23 @@
             </ul>
         </div>
         <div class="header">
-            <h1>My Library</h1>
-            <h3>...MyBrary?</h3>
+            <div class="header-title-div">
+                <img class="header-image" src="static/images/icons/bcdb-logo.png" alt="Library">
+                <h1>My Library<span style="font-size:0.4em"> (...Mybrary?)</span></h1>
+            </div>
+            <div class="add-book-div">
+                <button class="add-book-button">Add a Book!</button>
+                <form action="add-book" method="POST" class="add-book-form">
+                    <input type="text" name="title" placeholder="Title" required>
+                    <input type="text" name="author" placeholder="Author" required>
+                    <input type="text" name="pages" placeholder="Pages" required>
+                    <input type="text" name="read" placeholder="Read?" required>
+                    <div class="btn-box">
+                        <button type="submit">Submit</button>
+                        <button type="button" class="cancel-button">Cancel</button>
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="body">
             <div class="books-container">
@@ -50,6 +66,19 @@
         bookBox.addEventListener('mouseleave', () => {
             const bookInfo = bookBox.querySelector('.book-info');
             bookInfo.style.transform = 'translateY(100%)';
+        });
+    });
+
+
+    const addBookButton = document.querySelector('.add-book-button');
+    const addBookForm = document.querySelector('.add-book-form');
+    addBookButton.addEventListener('click', () => {
+        addBookForm.style.display = 'block';
+        addBookButton.style.display = 'none';
+
+        addBookForm.querySelector('.cancel-button').addEventListener('click', () => {
+            addBookForm.style.display = 'none';
+            addBookButton.style.display = 'block';
         });
     });
 </script>
