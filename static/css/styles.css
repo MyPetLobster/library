@@ -72,7 +72,7 @@ button:hover {
     color: var(--primary-light);
     background-color: var(--primary-dark);
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.196);
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 button:active {
     color: var(--primary-light);
@@ -232,7 +232,8 @@ body {
     border: 1px solid var(--primary-light);
     color: var(--primary-light);
 }
-.remove-btn:hover {
+.remove-btn:hover,
+.cancel-button:hover {
     font-weight: bold;
     border: 1px solid var(--danger);
     background-color: var(--danger);
@@ -251,8 +252,66 @@ body {
 
 .add-book-form {
     display: none;
+
+    width: 300px;
+    padding: 1em;
+    border-radius: 8px;
+    flex-direction: column;
+    text-align: left;
+    background-color: rgba(245, 245, 245, 0.763);
+    gap: 1em;
+
+}
+label {
+    font-size: 0.8em;
+}
+.add-book-form label {
+    margin-bottom: -1em;
+}
+input[type="file"] {
+    display: none;
+}
+#cover-label {
+    margin-bottom: 0.5em;
+    font-size: 0.8em;
+    color: var(--primary-dark);
+    cursor: pointer;
+}
+#cover-label:hover {
+    font-weight: bold;
+}
+.read-container {
+    position: relative;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 1em;
+    
 }
 
+.btn-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+input {
+    font-size: 0.8em;
+    padding: 0.5em;
+    border-radius: 6px;
+    border: none;
+}
+input:active,
+input:focus {
+    outline: 1px solid white;
+    border: 2px solid var(--primary-dark);
+}
+input::placeholder {
+    color: var(--primary-light);
+}
+input[type="checkbox"] {
+    outline: none;
+    accent-color: var(--primary-dark);
+}
 
 
 

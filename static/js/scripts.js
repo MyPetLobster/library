@@ -129,7 +129,7 @@ const addBookForm = document.querySelector('.add-book-form');
 const headerTitleDivH1 = document.querySelector('.header-title-div>h1');
 const headerTitleDivImg = document.querySelector('.header-title-div>img');
 expandBookFormButton.addEventListener('click', () => {
-    addBookForm.style.display = 'block';
+    addBookForm.style.display = 'flex';
     expandBookFormButton.style.display = 'none';
 
     headerTitleDivH1.style.fontSize = '0.8em';
