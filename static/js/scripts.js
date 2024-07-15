@@ -37,7 +37,7 @@ const myLibrary = [
     }
 ];
 
-// Book constructor function
+// Book constructor function & prototype method
 function Book(title, author, pages, read, image) {
   this.title = title;
   this.author = author;
@@ -45,6 +45,15 @@ function Book(title, author, pages, read, image) {
   this.read = read;
   this.image = image;
 }
+
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+}
+
+// Convert objects to instances of Book
+myLibrary.forEach((book, index) => {
+    myLibrary[index] = new Book(book.title, book.author, book.pages, book.read, book.image);
+});
 
 // Add book to library
 function addBookToLibrary(book) {
@@ -93,6 +102,14 @@ function displayBooks() {
         });
         bookBox.appendChild(bookInfo);
 
+        const toggleReadBtn = document.createElement('button');
+        toggleReadBtn.classList.add('toggle-read-btn');
+        toggleReadBtn.textContent = 'Toggle Read/Unread';
+        toggleReadBtn.addEventListener('click', () => {
+            myLibrary[index].toggleRead();
+            displayBooks();
+        });
+
         const removeBtn = document.createElement('button');
         removeBtn.classList.add('remove-btn');
         removeBtn.textContent = 'Remove';
@@ -101,26 +118,12 @@ function displayBooks() {
             displayBooks();
         });
 
+        bookInfo.appendChild(toggleReadBtn);
         bookInfo.appendChild(removeBtn);
 
         booksContainer.appendChild(bookBox);
     });
 }
-
-
-// BOOK CARDS
-const bookBoxes = document.querySelectorAll('.book-box');
-bookBoxes.forEach(bookBox => {
-    bookBox.addEventListener('mouseover', () => {
-        const bookInfo = bookBox.querySelector('.book-info');
-        bookInfo.style.transform = 'translateY(0)';
-    });
-    bookBox.addEventListener('mouseleave', () => {
-        const bookInfo = bookBox.querySelector('.book-info');
-        bookInfo.style.transform = 'translateY(100%)';
-    });
-});
-
 
 // ADD BOOK FORM
 // Expand/collapse add book form
@@ -151,11 +154,10 @@ addBookButton.addEventListener('click', (e) => {
     const title = addBookForm.querySelector('input[name="title"]').value;
     const author = addBookForm.querySelector('input[name="author"]').value;
     const pages = addBookForm.querySelector('input[name="pages"]').value;
-    const read = addBookForm.querySelector('input[name="read"]').value;
+    const read = addBookForm.querySelector('input[name="read"]').checked;
     let image = addBookForm.querySelector('input[name="cover"]').value;
 
     if (image === '') {
-        alert('true');
         image = 'static/images/book_covers/default.jpeg';
     }
 

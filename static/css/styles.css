@@ -233,9 +233,17 @@ body {
     font-size: 1em;
     text-align: center;
 }
+
+.toggle-read-btn, 
 .remove-btn {
     border: 1px solid var(--primary-light);
     color: var(--primary-light);
+}
+.toggle-read-btn:hover {
+    font-weight: bold;
+    border: 1px solid var(--primary-light);
+    color: var(--primary-dark);
+    background-color: var(--primary-light);
 }
 .remove-btn:hover,
 .cancel-button:hover {
