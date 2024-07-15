@@ -50,7 +50,7 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
 }
 
-
+// Display books, populate the DOM with book cards
 function displayBooks() {
     const booksContainer = document.querySelector('.books-container');
     booksContainer.innerHTML = '';
@@ -86,15 +86,6 @@ function displayBooks() {
         bookInfo.appendChild(pages);
         bookInfo.appendChild(read);
 
-        bookInfo.style.position = 'absolute';
-        bookInfo.style.top = '0';
-        bookInfo.style.left = '0';
-        bookInfo.style.right = '0';
-        bookInfo.style.bottom = '0';
-        bookInfo.style.transform = 'translateY(-100%)';
-        bookInfo.style.transition = 'transform 250ms ease-in-out';
-        bookInfo.style.color = 'white';
-        bookInfo.style.backgroundColor = 'rgba(0, 0, 0, 0.295)';
         bookBox.addEventListener('mouseenter', () => {
             bookInfo.style.transform = 'translateY(0)';
         });
@@ -184,8 +175,16 @@ avatarBox.addEventListener('mouseover', () => {
     nameLink.style.backgroundColor = 'var(--highlight-bg)';
     nameLink.style.color = 'var(--primary-light)';
 });
+nameLink.addEventListener('mouseover', () => {
+    nameLink.style.backgroundColor = 'var(--highlight-bg)';
+    nameLink.style.color = 'var(--primary-light)';
+});
 
 avatarBox.addEventListener('mouseout', () => {
+    nameLink.style.backgroundColor = 'transparent';
+    nameLink.style.color = 'var(--primary-dark)';
+});
+nameLink.addEventListener('mouseout', () => {
     nameLink.style.backgroundColor = 'transparent';
     nameLink.style.color = 'var(--primary-dark)';
 });

@@ -53,6 +53,7 @@ a {
     --primary-dark: #273c40;
     --primary-light: #b6c2c6;
     --highlight-bg: rgba(31, 41, 52, 0.381);
+    --danger: #a21d24;
 }
 
 
@@ -216,10 +217,26 @@ body {
     bottom: 0;
     transform: translateY(-100%);
     transition: transform 250ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2%;
     color: white;
-    background-color: rgba(0, 0, 0, 0.295)
-}
+    background-color: rgba(15, 33, 43, 0.763);
+    font-size: 1em;
+    text-align: center;
 
+}
+.remove-btn {
+    border: 1px solid var(--primary-light);
+    color: var(--primary-light);
+}
+.remove-btn:hover {
+    font-weight: bold;
+    border: 1px solid var(--danger);
+    background-color: var(--danger);
+}
 
 /* ADD BOOK */
 .add-book-div {
@@ -269,3 +286,25 @@ body {
     height: 24px;
 }
 
+
+
+@media screen and (max-width: 600px) {
+    .header {
+        font-size: 1.2em;
+    }
+    .header-image {
+        width: 60px;
+    }
+    .books-container {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .header {
+        font-size: 1em;
+    }
+    .header-image {
+        width: 45px;
+    }
+}
