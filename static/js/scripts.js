@@ -53,7 +53,7 @@ function addBookToLibrary(book) {
 
 function displayBooks() {
     const booksContainer = document.querySelector('.books-container');
-    
+    booksContainer.innerHTML = '';
     myLibrary.forEach((book, index) => {
         const bookBox = document.createElement('div');
         bookBox.classList.add('book-box');
@@ -111,7 +111,7 @@ function displayBooks() {
             displayBooks();
         });
 
-        bookBox.appendChild(removeBtn);
+        bookInfo.appendChild(removeBtn);
 
         booksContainer.appendChild(bookBox);
     });
