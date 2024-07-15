@@ -53,19 +53,70 @@ function addBookToLibrary(book) {
 
 function displayBooks() {
     const booksContainer = document.querySelector('.books-container');
-    booksContainer.innerHTML = '';
-
+    
     myLibrary.forEach((book, index) => {
         const bookBox = document.createElement('div');
         bookBox.classList.add('book-box');
         bookBox.dataset.index = index;
 
+        const coverImageBox = document.createElement('div');
+        coverImageBox.classList.add('cover-image-box');
 
+        const coverImage = document.createElement('img');
+        coverImage.src = book.image;
+        coverImage.alt = book.title;
 
-        // set img alt
+        coverImageBox.appendChild(coverImage);
+        bookBox.appendChild(coverImageBox);
+
+        const bookInfo = document.createElement('div');
+        bookInfo.classList.add('book-info');
+
+        const title = document.createElement('h2');
+        title.textContent = book.title;
+        const author = document.createElement('p');
+        author.textContent = book.author;
+        const pages = document.createElement('p');
+        pages.textContent = `${book.pages} pages`;
+        const read = document.createElement('p');
+        read.textContent = book.read ? 'Status: Read' : 'Status: Not Read';
+
+        bookInfo.appendChild(title);
+        bookInfo.appendChild(author);
+        bookInfo.appendChild(pages);
+        bookInfo.appendChild(read);
+
+        bookInfo.style.position = 'absolute';
+        bookInfo.style.top = '0';
+        bookInfo.style.left = '0';
+        bookInfo.style.right = '0';
+        bookInfo.style.bottom = '0';
+        bookInfo.style.transform = 'translateY(-100%)';
+        bookInfo.style.transition = 'transform 250ms ease-in-out';
+        bookInfo.style.color = 'white';
+        bookInfo.style.backgroundColor = 'rgba(0, 0, 0, 0.295)';
+        bookBox.addEventListener('mouseenter', () => {
+            bookInfo.style.transform = 'translateY(0)';
+        });
+        bookBox.addEventListener('mouseleave', () => {
+            bookInfo.style.transform = 'translateY(-100%)';
+        });
+        bookBox.appendChild(bookInfo);
+
+        const removeBtn = document.createElement('button');
+        removeBtn.classList.add('remove-btn');
+        removeBtn.textContent = 'Remove';
+        removeBtn.addEventListener('click', () => {
+            myLibrary.splice(index, 1);
+            displayBooks();
+        });
+
+        bookBox.appendChild(removeBtn);
+
+        booksContainer.appendChild(bookBox);
     });
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     displayBooks();
-// });
+document.addEventListener('DOMContentLoaded', () => {
+    displayBooks();
+});
