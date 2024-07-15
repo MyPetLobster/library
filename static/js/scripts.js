@@ -167,7 +167,23 @@ addBookButton.addEventListener('click', (e) => {
 
 
 
+// Handle avatar connection to name link
+const avatarBox = document.querySelector('.avatar-box');
+const nameLink = avatarBox.previousElementSibling;
 
+avatarBox.addEventListener('mouseover', () => {
+    nameLink.style.backgroundColor = 'var(--highlight-bg)';
+    nameLink.style.color = 'var(--primary-light)';
+});
+
+avatarBox.addEventListener('mouseout', () => {
+    nameLink.style.backgroundColor = 'transparent';
+    nameLink.style.color = 'var(--primary-dark)';
+});
+
+avatarBox.addEventListener('click', () => {
+    nameLink.click();
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {

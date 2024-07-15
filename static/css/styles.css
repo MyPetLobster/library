@@ -52,32 +52,41 @@ a {
 :root {
     --primary-dark: #273c40;
     --primary-light: #b6c2c6;
+    --highlight-bg: rgba(31, 41, 52, 0.381);
 }
 
 
 /* BUTTONS */
 button {
     padding: 0.2em 1.5em;
-    border: 1px solid black;
+    border: 1px solid var(--primary-dark);
     border-radius: 16px;
-    color: black;
+    color: var(--primary-dark);
     background-color: transparent;
     font-size: 0.8em;
     transition: 250ms;
     cursor: pointer;
 }
 button:hover {
-    color: white;
-    background-color: black;
+    color: var(--primary-light);
+    background-color: var(--primary-dark);
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.196);
     transform: scale(1.1);
 }
 button:active {
-    color: green;
+    color: var(--primary-light);
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.444);
     transform: scale(0.95);
 }
 
+.link-1 {
+    color: var(--primary-dark);
+    transition: 250ms;
+}
+.link-1:hover {
+    color: var(--primary-light);
+    background: var(--highlight-bg);
+}
 
 /* LAYOUT */
 .page-container {
@@ -149,23 +158,28 @@ body {
     width: 40px;
     object-fit: cover;
 }
-.nav-item>a {
+.nav-item {
     display: flex;
     align-items: center;
     gap: 1em;
-
 }
 .avatar-box {
     height: 42px;
     width: 42px;
     border-radius: 50%;
     overflow: hidden;
+    transition: 250ms;
+    cursor: pointer;
+}
+.avatar-box:hover {
+    transform: scale(1.1);
 }
 .avatar {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
+
 
 
 
