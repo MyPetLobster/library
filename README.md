@@ -11,11 +11,26 @@
     There is no persistent database, but a few books are added to the library by default and you are able to add or remove 
     books as you like as long as you don't refresh the page. The app is built with vanilla JavaScript, HTML, and CSS.
 </p>
+
+### Features
+<hr>
+
+- Add books to your library
+- Mark books as read
+- Delete books from your library
+- Toggle between read and unread books
+- Responsive design using CSS Grid and Flexbox
+- Interactive elements to display book details, form, etc.
+
+### Links
+<hr>
+<a href="http://mypetlobster.github.io/library">Try this project out here!</a>
 </br>
-<a class="about-link" href="https://www.theodinproject.com/lessons/node-path-javascript-library">
+</br>
+<a href="https://www.theodinproject.com/lessons/node-path-javascript-library">
     Here is a link to the Odin Project page for this project.
 </a>
 </br> 
-<a class="about-link" href="https://mypetlobster.github.io/admin-dashboard/">
+<a href="https://mypetlobster.github.io/admin-dashboard/">
     Here is a link to my previous project, "Admin Dashboard".
 </a>
