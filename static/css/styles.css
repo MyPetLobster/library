@@ -446,6 +446,19 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
+
+/* ABOUT PAGE */
+.about-body {
+    text-align: center;
+}
+.about-body p {
+    width: 66vw;
+    margin: 0 auto;
+    font-size: 1rem;
+
+}
+
+
 /* Media Queries */
 @media screen and (max-width: 800px) {
     .nav-hero-div>p {
