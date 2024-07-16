@@ -190,6 +190,21 @@ addBookButton.addEventListener('click', (e) => {
     reader.readAsDataURL(file);
 });
 
+// Show thumbnail of selected image
+const fileInput = document.querySelector('input[name="cover"]');
+const thumbnailContainer = document.querySelector('.thumbnail-container'); // display:none by default
+const thumbnail = document.querySelector('.thumbnail');
+
+fileInput.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (e) => {
+        thumbnail.src = e.target.result;
+        thumbnailContainer.style.display = 'block';
+    }
+    reader.readAsDataURL(file);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     displayBooks();

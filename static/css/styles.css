@@ -342,6 +342,24 @@ input[type="checkbox"] {
     accent-color: var(--primary-dark);
 }
 
+/* Cover Thumbnail */
+.thumbnail-container {
+    align-self: center;
+    display: none;
+    justify-content: center;
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+#cover-label {
+    align-self: center;
+}
+.thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; 
+}
 
 /* FOOTER */
 .footer {
@@ -414,7 +432,6 @@ input[type="checkbox"] {
 }
 
 /* YT Link Hover */
-
 .youtube-hover-div {
     position: absolute;
     top: 0;
