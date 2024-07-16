@@ -455,9 +455,11 @@ input[type="checkbox"] {
     width: 66vw;
     margin: 0 auto;
     font-size: 1rem;
-
 }
-
+.about-link:hover {
+    background-color: var(--highlight-bg);
+    color: var(--primary-light);
+}
 
 /* Media Queries */
 @media screen and (max-width: 800px) {
@@ -469,6 +471,16 @@ input[type="checkbox"] {
     }
     .header-title-div>h1 {
         font-size: 48px !important;
+    }
+    .app-image-div {
+        width: 80vw;
+    }
+    .related-apps-p,
+    .related-app-container>p,
+    .about-body p,
+    .about-body a  {
+        width: 80vw;
+        font-size: 0.8rem;
     }
 }
 
