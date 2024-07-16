@@ -214,6 +214,27 @@ heroDiv.addEventListener('click', () => {
     window.location.href = '/library/index.html';
 });
 
+
+// NAVBAR - make background solid on scroll
+const navbar = document.querySelector('.nav-container');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        navbar.style.backgroundColor = 'var(--primary-dark)';
+        navbar.querySelectorAll('a').forEach(link => {
+            link.style.color = 'var(--primary-light) !important';
+            heroDiv.querySelector('p').style.color = 'var(--primary-light) !important';
+        }
+        )
+    } else {
+        navbar.style.backgroundColor = 'transparent';
+        navbar.querySelectorAll('a').forEach(link => {
+            link.style.color = 'var(--primary-dark) !important';
+            heroDiv.querySelector('p').style.color = 'var(--primary-dark) !important';
+        });
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     displayBooks();
 });

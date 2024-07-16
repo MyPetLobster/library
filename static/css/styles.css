@@ -59,7 +59,7 @@ a {
 .page-container {
     position: relative;
     min-height: 100vh;
-    padding: 1em;
+    padding: 0;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 48px auto minmax(auto, 2fr) 36px;
@@ -71,7 +71,9 @@ a {
     gap: 1em;
 }
 .nav-container {
+    width: 100%;
     position: sticky;
+    left: 0;
     top: 0;
     z-index: 2;
     grid-area: nav;
@@ -89,6 +91,7 @@ a {
 
 .books-container {
     position: relative;
+    padding: 1em;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-template-rows: auto;
@@ -147,9 +150,10 @@ hr {
 }
 
 /* Navigation */
+
 .nav {
     width: 100%;
-    padding: 0 1em;
+    padding: 0.5em 1em;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -441,16 +445,49 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
+/* Media Queries */
+@media screen and (max-width: 800px) {
+    .nav-hero-div>p {
+        display: none;
+    }
+    .header-image {
+        width: 90px !important;
+    }
+    .header-title-div>h1 {
+        font-size: 48px !important;
+    }
+}
 
 @media screen and (max-width: 600px) {
+    .nav {
+        gap: 4%;
+    }
+    .nav>li {
+        font-size: 0.8em;
+    }
+    .avatar-box {
+        height: 36px;
+        width: 36px;
+    }
+    .nav-logo {
+        height: 36px;
+        width: 36px;
+    }
     .header {
         font-size: 1.2em;
     }
     .header-image {
-        width: 60px;
+        width: 60px !important;
+    }
+    
+    .header-title-div>h1 {
+        font-size: 36px !important;
     }
     .books-container {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    .book-info {
+        font-size: 0.8em;
     }
 }
 
@@ -459,6 +496,9 @@ input[type="checkbox"] {
         font-size: 1em;
     }
     .header-image {
-        width: 45px;
+        width: 45px !important;
+    }
+    .header-title-div>h1 {
+        font-size: 28px !important;
     }
 }
