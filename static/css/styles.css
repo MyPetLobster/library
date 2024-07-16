@@ -242,6 +242,12 @@ hr {
     font-size: 1em;
     text-align: center;
 }
+.book-info h2 {
+    color: white;
+}
+.author {
+    font-weight: bold;
+}
 
 .toggle-read-btn, 
 .remove-btn {

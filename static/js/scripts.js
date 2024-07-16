@@ -5,7 +5,6 @@ const myLibrary = [
         pages: 352,
         read: true,
         image: 'static/images/book_covers/setting_free_the_bears.jpeg'
-
     },
     {
         title: 'Elizabeth Costello',
@@ -82,7 +81,8 @@ function displayBooks() {
         const title = document.createElement('h2');
         title.textContent = book.title;
         const author = document.createElement('p');
-        author.textContent = book.author;
+        author.classList.add('author');
+        author.textContent = `By: ${book.author}`;
         const pages = document.createElement('p');
         pages.textContent = `${book.pages} pages`;
         const read = document.createElement('p');
@@ -129,19 +129,18 @@ function displayBooks() {
 // Expand/collapse add book form
 const expandBookFormButton = document.querySelector('.add-book-button');
 const addBookForm = document.querySelector('.add-book-form');
+
 const headerTitleDivH1 = document.querySelector('.header-title-div>h1');
 const headerTitleDivImg = document.querySelector('.header-title-div>img');
 expandBookFormButton.addEventListener('click', () => {
     addBookForm.style.display = 'flex';
     expandBookFormButton.style.display = 'none';
-
     headerTitleDivH1.style.fontSize = '0.8em';
     headerTitleDivImg.style.width = '40px';
 
     addBookForm.querySelector('.cancel-button').addEventListener('click', () => {
         addBookForm.style.display = 'none';
         expandBookFormButton.style.display = 'block';
-
         headerTitleDivH1.style.fontSize = '2em';
         headerTitleDivImg.style.width = '120px';
     });
@@ -155,21 +154,33 @@ addBookButton.addEventListener('click', (e) => {
     const author = addBookForm.querySelector('input[name="author"]').value;
     const pages = addBookForm.querySelector('input[name="pages"]').value;
     const read = addBookForm.querySelector('input[name="read"]').checked;
-    let image = addBookForm.querySelector('input[name="cover"]').value;
+    const fileInput = addBookForm.querySelector('input[name="cover"]');
+    const file = fileInput.files[0];
 
-    if (image === '') {
-        image = 'static/images/book_covers/default.jpeg';
+    if (!file) {
+        // Use default image if no file is selected
+        const image = 'static/images/book_covers/default.jpeg';
+        const newBook = new Book(title, author, pages, read, image);
+        addBookToLibrary(newBook);
+        displayBooks();
+        addBookForm.reset();
+        addBookForm.style.display = 'none';
+        expandBookFormButton.style.display = 'block';
+        return;
     }
 
-    // Create new book object and add to library
-    const newBook = new Book(title, author, pages, read, image);
-    addBookToLibrary(newBook);
-
-    addBookForm.style.display = 'none';
-    expandBookFormButton.style.display = 'block';
-    displayBooks();
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const image = event.target.result;
+        const newBook = new Book(title, author, pages, read, image);
+        addBookToLibrary(newBook);
+        displayBooks();
+        addBookForm.reset();
+        addBookForm.style.display = 'none';
+        expandBookFormButton.style.display = 'block';
+    };
+    reader.readAsDataURL(file);
 });
-
 
 // NAVBAR FX - Connect avatar to profile link
 const avatarBox = document.querySelector('.avatar-box');
@@ -196,7 +207,6 @@ nameLink.addEventListener('mouseout', () => {
 avatarBox.addEventListener('click', () => {
     nameLink.click();
 });
-
 
 // NAVBAR - Hero Div Link
 const heroDiv = document.querySelector('.nav-hero-div');
