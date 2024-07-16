@@ -101,7 +101,24 @@ a {
 }
 
 
-/* BUTTONS */
+/* ---- GENERAL STYLING ---- */
+body {
+    font-family: 'glacial-indifference', sans-serif;
+    font-size: 16px;
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+}
+h1, h2, h3, h4 {
+    color: var(--primary-dark);
+}
+hr {
+    width: 100%;
+    border: 1px solid var(--primary-light-alt);
+    margin: 1em 0;
+}
+
+
+/* ---- BUTTONS ---- */
 button {
     padding: 0.2em 1.5em;
     border: 1px solid var(--primary-dark);
@@ -134,24 +151,7 @@ button:active {
 }
 
 
-/* ---- STYLING ---- */
-body {
-    font-family: 'glacial-indifference', sans-serif;
-    font-size: 16px;
-    background-color: var(--primary-light);
-    color: var(--primary-dark);
-}
-h1, h2, h3, h4 {
-    color: var(--primary-dark);
-}
-hr {
-    width: 100%;
-    border: 1px solid var(--primary-light-alt);
-    margin: 1em 0;
-}
-
-/* Navigation */
-
+/* ---- NAVIGATION ---- */
 .nav {
     width: 100%;
     padding: 0.5em 1em;
@@ -222,7 +222,6 @@ hr {
 
 
 /* ---- MAIN CONTENT ---- */
-
 /* Book Cards - Cover/Info */
 .book-box {
     position: relative;
@@ -272,7 +271,7 @@ hr {
     background-color: var(--danger);
 }
 
-/* ADD BOOK FORM */
+/* Add Book Form */
 .add-book-div {
     width: 100%;
     margin: 2rem 0;
@@ -361,7 +360,7 @@ input[type="checkbox"] {
     border-radius: 8px; 
 }
 
-/* FOOTER */
+/* ---- FOOTER ---- */
 .footer {
     grid-area: footer;
     display: flex;
@@ -390,7 +389,6 @@ input[type="checkbox"] {
     display: none;
     height: 24px;
 }
-
 
 
 
@@ -446,11 +444,9 @@ input[type="checkbox"] {
     background-color: #3d5a60cc;
     transition: 1000ms;
 }
-
 .app-image-div:hover > .youtube-hover-div {
     opacity: 1;
 }
-
 .yt-svg-container {
     display: flex;
     gap: 1em;
@@ -464,7 +460,7 @@ input[type="checkbox"] {
 }
 
 
-/* ABOUT PAGE */
+/* ---- ABOUT PAGE ---- */
 .about-body {
     text-align: center;
 }
@@ -478,7 +474,10 @@ input[type="checkbox"] {
     color: var(--primary-light);
 }
 
-/* Media Queries */
+
+
+
+/* ---- MEDIA QUERIES ---- */
 @media screen and (max-width: 800px) {
     .nav-hero-div>p {
         display: none;
