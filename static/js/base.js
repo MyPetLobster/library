@@ -33,17 +33,17 @@ heroDiv.addEventListener('click', () => {
 const navbar = document.querySelector('.nav-container');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 0) {
-        navbar.style.backgroundColor = 'var(--primary-dark)';
+        navbar.classList.add('scrolled-bg');
         navbar.querySelectorAll('a').forEach(link => {
-            link.style.color = 'var(--primary-light) !important';
-            heroDiv.querySelector('p').style.color = 'var(--primary-light) !important';
+            link.classList.add('scrolled-link');
+            heroDiv.querySelector('p').classList.add('scrolled-link');
         }
         )
     } else {
-        navbar.style.backgroundColor = 'transparent';
+        navbar.classList.remove('scrolled-bg');
         navbar.querySelectorAll('a').forEach(link => {
-            link.style.color = 'var(--primary-dark) !important';
-            heroDiv.querySelector('p').style.color = 'var(--primary-dark) !important';
+            link.classList.remove('scrolled-link');
+            heroDiv.querySelector('p').classList.remove('scrolled-link');
         });
     }
 });

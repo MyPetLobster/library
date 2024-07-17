@@ -81,6 +81,10 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: transparent;
+}
+.nav-container>a {
+    color: var(--primary-dark);
 }
 .header-container {
     grid-area: header;
@@ -152,6 +156,12 @@ button:active {
 
 
 /* ---- NAVIGATION ---- */
+.scrolled-bg {
+    background-color: var(--primary-dark);
+}
+.scrolled-link {
+    color: var(--primary-light);
+}
 .nav {
     width: 100%;
     padding: 0.5em 1em;
