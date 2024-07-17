@@ -100,13 +100,25 @@ function displayBooks() {
         bookInfo.appendChild(pages);
         bookInfo.appendChild(read);
 
-        // Show/hide book-info on hover
+        // Show/hide book-info on hover/touch event
         bookBox.addEventListener('mouseenter', () => {
             bookInfo.style.transform = 'translateY(0)';
         });
         bookBox.addEventListener('mouseleave', () => {
             bookInfo.style.transform = 'translateY(-100%)';
         });
+        
+        let bookInfoDisplayed = false;
+        bookBox.addEventListener('touchend', () => {
+            bookInfoDisplayed = !bookInfoDisplayed;
+            if (bookInfoDisplayed) {
+                bookInfo.style.transform = 'translateY(0)';
+            } else {
+                bookInfo.style.transform = 'translateY(-100%)';
+            }
+        });
+      
+
         bookBox.appendChild(bookInfo);
 
         const toggleReadBtn = document.createElement('button');
