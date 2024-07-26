@@ -13,6 +13,7 @@ class Book {
     }
 }
 
+
 // Sample Library
 const myLibrary = [
     new Book('Setting Free the Bears', 'John Irving', 352, true, 'static/images/book_covers/setting_free_the_bears.jpeg'),
@@ -25,8 +26,8 @@ const myLibrary = [
 
 // Library Class 
 class Library {
-    constructor() { 
-        this.books = myLibrary;
+    constructor(library=[]) { 
+        this.books = library;
     }
 
     addBook(book) {
@@ -83,7 +84,6 @@ class Library {
                     bookInfo.style.transform = 'translateY(-100%)';
                 }
             });
-        
 
             bookBox.appendChild(bookInfo);
 
@@ -92,7 +92,7 @@ class Library {
             toggleReadBtn.textContent = 'Toggle Read/Unread';
             toggleReadBtn.addEventListener('click', () => {
                 this.books[index].toggleRead();
-                displayBooks();
+                library.displayBooks();
             });
 
             const removeBtn = document.createElement('button');
@@ -100,7 +100,7 @@ class Library {
             removeBtn.textContent = 'Remove';
             removeBtn.addEventListener('click', () => {
                 this.books.splice(index, 1);
-                displayBooks();
+                library.displayBooks();
             });
 
             bookInfo.appendChild(toggleReadBtn);
@@ -111,23 +111,11 @@ class Library {
     }
 }
 
-
 // Initiate new instance of Library
-const library = new Library();
+const library = new Library(myLibrary);
 
 
-
-// // Add book to library function
-// function addBookToLibrary(book) {
-//     myLibrary.push(book);
-// }
-
-
-// Display books in library function
-
-
-
-// ADD BOOK FORM
+// ----- ADD BOOK FORM -----
 // Expand/collapse add book form
 const expandBookFormButton = document.querySelector('.add-book-button');
 const addBookForm = document.querySelector('.add-book-form');
@@ -162,8 +150,8 @@ addBookButton.addEventListener('click', (e) => {
         // Use default image if no file is selected
         const image = 'static/images/book_covers/default.jpeg';
         const newBook = new Book(title, author, pages, read, image);
-        addBookToLibrary(newBook);
-        displayBooks();
+        library.addBook(newBook);
+        library.displayBooks();
         addBookForm.reset();
         addBookForm.style.display = 'none';
         expandBookFormButton.style.display = 'block';
@@ -175,8 +163,8 @@ addBookButton.addEventListener('click', (e) => {
     reader.onload = function(event) {
         const image = event.target.result;
         const newBook = new Book(title, author, pages, read, image);
-        addBookToLibrary(newBook);
-        displayBooks();
+        library.addBook(newBook);
+        library.displayBooks();
         addBookForm.reset();
         addBookForm.style.display = 'none';
         expandBookFormButton.style.display = 'block';
@@ -201,5 +189,5 @@ fileInput.addEventListener('change', (e) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    displayBooks();
+    library.displayBooks();
 });
