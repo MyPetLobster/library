@@ -23,96 +23,108 @@ const myLibrary = [
 ];
 
 
+// Library Class 
+class Library {
+    constructor() { 
+        this.books = myLibrary;
+    }
 
-// Convert sample objects to instances of Book
-myLibrary.forEach((book, index) => {
-    myLibrary[index] = new Book(book.title, book.author, book.pages, book.read, book.image);
-});
+    addBook(book) {
+        this.books.push(book);
+    }
 
+    displayBooks() {
+        const booksContainer = document.querySelector('.books-container');
+        booksContainer.innerHTML = '';
+        this.books.forEach((book, index) => {
+            const bookBox = document.createElement('div');
+            bookBox.classList.add('book-box');
+            bookBox.dataset.index = index; // Add index to parent element "book-box"
+            const coverImageBox = document.createElement('div');
+            coverImageBox.classList.add('cover-image-box');
+            const coverImage = document.createElement('img');
+            coverImage.src = book.image;
+            coverImage.alt = book.title;
 
-// Add book to library function
-function addBookToLibrary(book) {
-    myLibrary.push(book);
+            coverImageBox.appendChild(coverImage);
+            bookBox.appendChild(coverImageBox);
+
+            const bookInfo = document.createElement('div');
+            bookInfo.classList.add('book-info');
+            const title = document.createElement('h2');
+            title.textContent = book.title;
+            const author = document.createElement('p');
+            author.classList.add('author');
+            author.textContent = `By: ${book.author}`;
+            const pages = document.createElement('p');
+            pages.textContent = `${book.pages} pages`;
+            const read = document.createElement('p');
+            read.textContent = book.read ? 'Status: Read' : 'Status: Not Read';
+
+            bookInfo.appendChild(title);
+            bookInfo.appendChild(author);
+            bookInfo.appendChild(pages);
+            bookInfo.appendChild(read);
+
+            // Show/hide book-info on hover/touch event
+            bookBox.addEventListener('mouseenter', () => {
+                bookInfo.style.transform = 'translateY(0)';
+            });
+            bookBox.addEventListener('mouseleave', () => {
+                bookInfo.style.transform = 'translateY(-100%)';
+            });
+            
+            let bookInfoDisplayed = false;
+            bookBox.addEventListener('touchend', () => {
+                bookInfoDisplayed = !bookInfoDisplayed;
+                if (bookInfoDisplayed) {
+                    bookInfo.style.transform = 'translateY(0)';
+                } else {
+                    bookInfo.style.transform = 'translateY(-100%)';
+                }
+            });
+        
+
+            bookBox.appendChild(bookInfo);
+
+            const toggleReadBtn = document.createElement('button');
+            toggleReadBtn.classList.add('toggle-read-btn');
+            toggleReadBtn.textContent = 'Toggle Read/Unread';
+            toggleReadBtn.addEventListener('click', () => {
+                this.books[index].toggleRead();
+                displayBooks();
+            });
+
+            const removeBtn = document.createElement('button');
+            removeBtn.classList.add('remove-btn');
+            removeBtn.textContent = 'Remove';
+            removeBtn.addEventListener('click', () => {
+                this.books.splice(index, 1);
+                displayBooks();
+            });
+
+            bookInfo.appendChild(toggleReadBtn);
+            bookInfo.appendChild(removeBtn);
+
+            booksContainer.appendChild(bookBox);
+        });
+    }
 }
+
+
+// Initiate new instance of Library
+const library = new Library();
+
+
+
+// // Add book to library function
+// function addBookToLibrary(book) {
+//     myLibrary.push(book);
+// }
 
 
 // Display books in library function
-function displayBooks() {
-    const booksContainer = document.querySelector('.books-container');
-    booksContainer.innerHTML = '';
-    myLibrary.forEach((book, index) => {
-        const bookBox = document.createElement('div');
-        bookBox.classList.add('book-box');
-        bookBox.dataset.index = index; // Add index to parent element "book-box"
-        const coverImageBox = document.createElement('div');
-        coverImageBox.classList.add('cover-image-box');
-        const coverImage = document.createElement('img');
-        coverImage.src = book.image;
-        coverImage.alt = book.title;
 
-        coverImageBox.appendChild(coverImage);
-        bookBox.appendChild(coverImageBox);
-
-        const bookInfo = document.createElement('div');
-        bookInfo.classList.add('book-info');
-        const title = document.createElement('h2');
-        title.textContent = book.title;
-        const author = document.createElement('p');
-        author.classList.add('author');
-        author.textContent = `By: ${book.author}`;
-        const pages = document.createElement('p');
-        pages.textContent = `${book.pages} pages`;
-        const read = document.createElement('p');
-        read.textContent = book.read ? 'Status: Read' : 'Status: Not Read';
-
-        bookInfo.appendChild(title);
-        bookInfo.appendChild(author);
-        bookInfo.appendChild(pages);
-        bookInfo.appendChild(read);
-
-        // Show/hide book-info on hover/touch event
-        bookBox.addEventListener('mouseenter', () => {
-            bookInfo.style.transform = 'translateY(0)';
-        });
-        bookBox.addEventListener('mouseleave', () => {
-            bookInfo.style.transform = 'translateY(-100%)';
-        });
-        
-        let bookInfoDisplayed = false;
-        bookBox.addEventListener('touchend', () => {
-            bookInfoDisplayed = !bookInfoDisplayed;
-            if (bookInfoDisplayed) {
-                bookInfo.style.transform = 'translateY(0)';
-            } else {
-                bookInfo.style.transform = 'translateY(-100%)';
-            }
-        });
-      
-
-        bookBox.appendChild(bookInfo);
-
-        const toggleReadBtn = document.createElement('button');
-        toggleReadBtn.classList.add('toggle-read-btn');
-        toggleReadBtn.textContent = 'Toggle Read/Unread';
-        toggleReadBtn.addEventListener('click', () => {
-            myLibrary[index].toggleRead();
-            displayBooks();
-        });
-
-        const removeBtn = document.createElement('button');
-        removeBtn.classList.add('remove-btn');
-        removeBtn.textContent = 'Remove';
-        removeBtn.addEventListener('click', () => {
-            myLibrary.splice(index, 1);
-            displayBooks();
-        });
-
-        bookInfo.appendChild(toggleReadBtn);
-        bookInfo.appendChild(removeBtn);
-
-        booksContainer.appendChild(bookBox);
-    });
-}
 
 
 // ADD BOOK FORM
