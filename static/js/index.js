@@ -1,57 +1,27 @@
+// Book Class
+class Book {
+    constructor(title, author, pages, read, image) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.image = image;
+    }
+
+    toggleRead() {
+        this.read = !this.read;
+    }
+}
+
 // Sample Library
 const myLibrary = [
-    {
-        title: 'Setting Free the Bears',
-        author: 'John Irving',
-        pages: 352,
-        read: true,
-        image: 'static/images/book_covers/setting_free_the_bears.jpeg'
-    },
-    {
-        title: 'Elizabeth Costello',
-        author: 'J.M. Coetzee',
-        pages: 231,
-        read: true,
-        image: 'static/images/book_covers/elizabeth_costello.jpeg'
-    },
-    {
-        title: 'The Terror',
-        author: 'Dan Simmons',
-        pages: 769,
-        read: true,
-        image: 'static/images/book_covers/the_terror.jpeg'
-    },
-    {
-        title: 'The Brief Wondrous Life of Oscar Wao',
-        author: 'Junot Diaz',
-        pages: 335,
-        read: false,
-        image: 'static/images/book_covers/the_brief_wondrous_life_of_oscar_wao.jpeg'
-    },
-    {
-        title: 'The Golem and the Jinni',
-        author: 'Helene Wecker',
-        pages: 486,
-        read: true,
-        image: 'static/images/book_covers/the_golem_and_the_jinni.jpeg'
-    }
+    new Book('Setting Free the Bears', 'John Irving', 352, true, 'static/images/book_covers/setting_free_the_bears.jpeg'),
+    new Book('Elizabeth Costello', 'J.M. Coetzee', 231, true, 'static/images/book_covers/elizabeth_costello.jpeg'),
+    new Book('The Terror', 'Dan Simmons', 769, true, 'static/images/book_covers/the_terror.jpeg'),
+    new Book('The Brief Wondrous Life of Oscar Wao', 'Junot Diaz', 335, false, 'static/images/book_covers/the_brief_wondrous_life_of_oscar_wao.jpeg'),
+    new Book('The Golem and the Jinni', 'Helene Wecker', 486, true, 'static/images/book_covers/the_golem_and_the_jinni.jpeg')
 ];
 
-
-// Book constructor function & prototype method
-function Book(title, author, pages, read, image) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.image = image;
-}
-
-
-// Prototype method to toggle read status
-Book.prototype.toggleRead = function() {
-    this.read = !this.read;
-}
 
 
 // Convert sample objects to instances of Book
